@@ -1,0 +1,36 @@
+写一篇介绍文章
+
+## 设计思路
+
+site_id 根据根域名来获取
+
+browser_id user_id times token
+
+token = hash(sk+browser_id+user_id+times)
+
+
+decode func li [
+  simple_type
+]
+
+type -> func pos id
+  simple_type
+  tuple([decode_func_pos,decode_func_pos])
+  enum([
+    [id,decode_func_pos]
+  ])
+  array(decode_func_pos)
+
+key -> func args
+
+
+单一类型 type_id
+元组 [type_id,type_id]
+枚举类型 {type_id:[type_id,type_id,type_id]}
+数组 
+复合类型的数组 
+
+
+# 重要不紧急
+
+验证码校验浏览器ID不变

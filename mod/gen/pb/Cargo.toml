@@ -1,0 +1,11 @@
+[package]
+name = "pb"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+proto_demo = { path = "../rust/proto_demo" }
+proto__ = { path = "../rust/proto__" }
+proto_auth = { path = "../rust/proto_auth" }
+proto_captcha = { path = "../rust/proto_captcha" }
+proto_user = { path = "../rust/proto_user" }

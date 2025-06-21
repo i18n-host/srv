@@ -1,0 +1,9 @@
+/**
+ * ## demo_
+ * - @captcha captcha()
+ * - manual_captcha()
+ */
+
+syntax = "proto3";
+package demo;
+

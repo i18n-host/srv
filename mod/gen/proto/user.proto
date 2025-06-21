@@ -1,0 +1,11 @@
+/**
+ * ## user_
+ * - name() → String
+ */
+
+syntax = "proto3";
+package user;
+
+message String {
+  string v = 1;
+}

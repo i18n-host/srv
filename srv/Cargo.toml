@@ -1,0 +1,31 @@
+[package]
+name = "hpc_srv"
+version = "0.1.0"
+edition = "2024"
+license = "MulanPSL-2.0"
+repository = "https://github.com/i18n-site/hpc_srv.git"
+homepage = "https://github.com/i18n-site/hpc_srv/tree/main/hpc_srv"
+description = "hpc server"
+
+[dependencies]
+mod = { path = "../mod" }
+pb = { path = "../mod/gen/pb" }
+ctx_ = { version = "0.1.8", features = ["cookie", "captcha"] }
+hpc = { version = "0.1.50" }
+ih = { version = "0.1.15" }
+
+aok = "0.1.17"
+axum = { version = "0.8.4", features = ["tracing", "macros"] }
+axum_layer = "0.1.11"
+genv = "0.1.16"
+loginit = "0.1.18"
+pb-jelly = "0.0.17"
+static_ = "0.1.14"
+static_init = "1.0.4"
+tokio = { version = "1.45.1", features = ["macros", "rt", "rt-multi-thread"] }
+dstr = { version = "0.1.4", features = ["dvec"] }
+hpc_captcha = "0.1.4"
+s_ = "0.1.6"
+
+[package.metadata.cargo-machete]
+ignored = ["pb-jelly", "pb", "mod"]

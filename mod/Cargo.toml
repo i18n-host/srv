@@ -1,0 +1,14 @@
+[package]
+name = "mod"
+version = "0.1.0"
+edition = "2024"
+license = "MulanPSL-2.0"
+repository = "https://github.com/i18n-site/hpc_srv.git"
+homepage = "https://github.com/i18n-site/hpc_srv/tree/main/mod_"
+description = "hpc server"
+
+[dependencies]
+user_ = { version = "0.1.0", path = "../../mod/user_" }
+auth_ = { version = "0.1.0", path = "../../mod/auth_" }
+captcha_ = { version = "0.1.1", path = "../../mod/captcha_" }
+demo_ = { version = "0.1.0", path = "../../mod/demo_" }

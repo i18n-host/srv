@@ -1,0 +1,24 @@
+syntax = "proto3";
+message T0 {
+  repeated uint32 t0=1;
+  repeated bytes t1=2;
+}
+message T1 {
+  bytes t0=1;
+  bytes t1=2;
+  bytes t2=3;
+}
+message T2 {
+  repeated uint32 t0=1;
+}
+message T3 {
+  bytes t0=1;
+  repeated uint32 t1=2;
+}
+message T4 {
+  string t0=1;
+}
+message T5 {
+  string t0=1;
+  string t1=2;
+}

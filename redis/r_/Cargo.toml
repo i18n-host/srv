@@ -1,0 +1,11 @@
+[package]
+name = "r_"
+license = "MulanPSL-2.0"
+version = "0.1.2"
+edition = "2024"
+repository = "https://github.com/i18n-site/srv.git"
+homepage = "https://github.com/i18n-site/srv/tree/main/redis"
+description = "redis key const for hpc"
+keywords = []
+
+[dependencies]

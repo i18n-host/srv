@@ -1,0 +1,10 @@
+*.wasm
+.DS_Store
+Cargo.lock
+__pycache__/
+bun.lock
+bun.lockb
+node_modules/
+out.txt
+target/
+

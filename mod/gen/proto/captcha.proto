@@ -1,0 +1,22 @@
+/**
+ * ## captcha_
+ * - verify(VerifyArgs) → String
+ * - captcha() → Captcha
+ */
+
+syntax = "proto3";
+package captcha;
+
+message VerifyArgs {
+  bytes id = 1;
+  repeated uint32 click_pos_li = 2;
+}
+
+message String {
+  string v = 1;
+}
+message Captcha {
+  bytes id = 1;
+  bytes img = 2;
+  bytes tip = 3;
+}
