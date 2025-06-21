@@ -1,11 +1,11 @@
 services:
   kv:
-    service_name: dev-kv
+    container_name: dev-kv
     extends:
       file: kvrocks.yml
       service: kv
   db:
-    service_name: dev-db
+    container_name: dev-db
     extends:
       file: mariadb.yml
       service: db

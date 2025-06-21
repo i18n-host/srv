@@ -1,7 +1,6 @@
 services:
   kv:
     restart: always
-    container_name: hpc-kv
     mem_limit: 2G
     image: apache/kvrocks:latest
     entrypoint: >
