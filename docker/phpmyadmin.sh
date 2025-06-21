@@ -5,5 +5,9 @@ cd $DIR
 set -ex
 
 PORT=9232
-docker run -d --name my-phpmyadmin -v "$(dirname DIR)/conf/phpmyadmin.config.php:/etc/phpmyadmin/config.user.inc.php" -p $PORT:80 phpmyadmin/phpmyadmin &&
-  sleep 1 && open http://localhost:${PORT}
+docker run -d --name myadmin \
+  --add-host=host.docker.internal:host-gateway \
+  -v ../conf/phpmyadmin.config.php:/etc/phpmyadmin/config.user.inc.php \
+  -v ./mnt/cache/phpmyadmin/session/:/sessions/ \
+  -p $PORT:80 phpmyadmin/phpmyadmin &&
+  sleep 1 && open http://localhost:$PORT
