@@ -29,6 +29,7 @@ message T6 {
   uint32 t3=4;
   string t4=5;
   string t5=6;
-  uint32 t6=7;
-  string t7=8;
+  string t6=7;
+  uint32 t7=8;
+  string t8=9;
 }

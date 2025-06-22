@@ -203,6 +203,7 @@ pub struct TestArgs {
   pub h: u32,
   pub os_ver: ::std::string::String,
   pub arch: ::std::string::String,
+  pub model: ::std::string::String,
   pub cpu_num: u32,
   pub gpu: ::std::string::String,
 }
@@ -215,6 +216,7 @@ impl ::std::default::Default for TestArgs {
       h: ::std::default::Default::default(),
       os_ver: ::std::default::Default::default(),
       arch: ::std::default::Default::default(),
+      model: ::std::default::Default::default(),
       cpu_num: ::std::default::Default::default(),
       gpu: ::std::default::Default::default(),
     }
@@ -284,10 +286,19 @@ impl ::pb_jelly::Message for TestArgs {
           oneof_index: None,
         },
         ::pb_jelly::FieldDescriptor {
-          name: "cpu_num",
-          full_name: "auth.TestArgs.cpu_num",
+          name: "model",
+          full_name: "auth.TestArgs.model",
           index: 6,
           number: 7,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+        ::pb_jelly::FieldDescriptor {
+          name: "cpu_num",
+          full_name: "auth.TestArgs.cpu_num",
+          index: 7,
+          number: 8,
           typ: ::pb_jelly::wire_format::Type::Varint,
           label: ::pb_jelly::Label::Optional,
           oneof_index: None,
@@ -295,8 +306,8 @@ impl ::pb_jelly::Message for TestArgs {
         ::pb_jelly::FieldDescriptor {
           name: "gpu",
           full_name: "auth.TestArgs.gpu",
-          index: 7,
-          number: 8,
+          index: 8,
+          number: 9,
           typ: ::pb_jelly::wire_format::Type::LengthDelimited,
           label: ::pb_jelly::Label::Optional,
           oneof_index: None,
@@ -314,8 +325,9 @@ impl ::pb_jelly::Message for TestArgs {
     size += ::pb_jelly::helpers::compute_size_scalar::<u32>(&self.h, 4, ::pb_jelly::wire_format::Type::Varint);
     size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.os_ver, 5, ::pb_jelly::wire_format::Type::LengthDelimited);
     size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.arch, 6, ::pb_jelly::wire_format::Type::LengthDelimited);
-    size += ::pb_jelly::helpers::compute_size_scalar::<u32>(&self.cpu_num, 7, ::pb_jelly::wire_format::Type::Varint);
-    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.gpu, 8, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.model, 7, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size += ::pb_jelly::helpers::compute_size_scalar::<u32>(&self.cpu_num, 8, ::pb_jelly::wire_format::Type::Varint);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.gpu, 9, ::pb_jelly::wire_format::Type::LengthDelimited);
     size
   }
   fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
@@ -325,8 +337,9 @@ impl ::pb_jelly::Message for TestArgs {
     ::pb_jelly::helpers::serialize_scalar::<W, u32>(w, &self.h, 4, ::pb_jelly::wire_format::Type::Varint)?;
     ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.os_ver, 5, ::pb_jelly::wire_format::Type::LengthDelimited)?;
     ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.arch, 6, ::pb_jelly::wire_format::Type::LengthDelimited)?;
-    ::pb_jelly::helpers::serialize_scalar::<W, u32>(w, &self.cpu_num, 7, ::pb_jelly::wire_format::Type::Varint)?;
-    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.gpu, 8, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.model, 7, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, u32>(w, &self.cpu_num, 8, ::pb_jelly::wire_format::Type::Varint)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.gpu, 9, ::pb_jelly::wire_format::Type::LengthDelimited)?;
     Ok(())
   }
   fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
@@ -357,11 +370,15 @@ impl ::pb_jelly::Message for TestArgs {
           self.arch = val;
         }
         7 => {
-          let val = ::pb_jelly::helpers::deserialize_known_length::<B, u32>(buf, typ, ::pb_jelly::wire_format::Type::Varint, "TestArgs", 7)?;
-          self.cpu_num = val;
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "TestArgs", 7)?;
+          self.model = val;
         }
         8 => {
-          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "TestArgs", 8)?;
+          let val = ::pb_jelly::helpers::deserialize_known_length::<B, u32>(buf, typ, ::pb_jelly::wire_format::Type::Varint, "TestArgs", 8)?;
+          self.cpu_num = val;
+        }
+        9 => {
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "TestArgs", 9)?;
           self.gpu = val;
         }
         _ => {
@@ -399,6 +416,9 @@ impl ::pb_jelly::Reflection for TestArgs {
       }
       "arch" => {
         ::pb_jelly::reflection::FieldMut::Value(&mut self.arch)
+      }
+      "model" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.model)
       }
       "cpu_num" => {
         ::pb_jelly::reflection::FieldMut::Value(&mut self.cpu_num)

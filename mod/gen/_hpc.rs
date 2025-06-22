@@ -79,7 +79,7 @@ Err(err)=>call_err("auth::signup::mail", err, captcha, || dvec![&args.address,&a
 Func::AuthTest => {
   let args: pb::auth::TestArgs = args_decode(args,"auth::Test")?;
   let headers = &ctx.req.headers;
-auth::test(args.timezone.0 as i8,args.dpi as u8,args.w as u16,args.h as u16,&args.os_ver,&args.arch,args.cpu_num,&args.gpu,&headers);
+auth::test(args.timezone.0 as i8,args.dpi as u8,args.w as u16,args.h as u16,&args.os_ver,&args.arch,&args.model,args.cpu_num,&args.gpu,&headers);
 (State::OK, vec![])
 }
 
