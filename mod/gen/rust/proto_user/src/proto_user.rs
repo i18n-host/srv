@@ -18,46 +18,35 @@ impl ::pb_jelly::Message for String {
     Some(::pb_jelly::MessageDescriptor {
       name: "String",
       full_name: "user.String",
-      fields: &[::pb_jelly::FieldDescriptor {
-        name: "v",
-        full_name: "user.String.v",
-        index: 0,
-        number: 1,
-        typ: ::pb_jelly::wire_format::Type::LengthDelimited,
-        label: ::pb_jelly::Label::Optional,
-        oneof_index: None,
-      }],
-      oneofs: &[],
+      fields: &[
+        ::pb_jelly::FieldDescriptor {
+          name: "v",
+          full_name: "user.String.v",
+          index: 0,
+          number: 1,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+      ],
+      oneofs: &[
+      ],
     })
   }
   fn compute_size(&self) -> usize {
     let mut size = 0usize;
-    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(
-      &self.v,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    );
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.v, 1, ::pb_jelly::wire_format::Type::LengthDelimited);
     size
   }
   fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
-    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(
-      w,
-      &self.v,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    )?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.v, 1, ::pb_jelly::wire_format::Type::LengthDelimited)?;
     Ok(())
   }
-  fn deserialize<B: ::pb_jelly::PbBufferReader>(
-    &mut self,
-    mut buf: &mut B,
-  ) -> ::std::io::Result<()> {
+  fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
     while let Some((field_number, typ)) = ::pb_jelly::wire_format::read(&mut buf)? {
       match field_number {
         1 => {
-          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(
-            buf, typ, "String", 1,
-          )?;
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "String", 1)?;
           self.v = val;
         }
         _ => {
@@ -78,10 +67,13 @@ impl ::pb_jelly::Reflection for String {
   }
   fn get_field_mut(&mut self, field_name: &str) -> ::pb_jelly::reflection::FieldMut<'_> {
     match field_name {
-      "v" => ::pb_jelly::reflection::FieldMut::Value(&mut self.v),
+      "v" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.v)
+      }
       _ => {
         panic!("unknown field name given")
       }
     }
   }
 }
+

@@ -198,3 +198,66 @@ const T5Read = (msg, reader) => {
   }
   return msg;
 };
+/**
+ * Serializes T6 to protobuf.
+ */
+export const T6Encode = (msg) =>
+  _P.getResultBuffer(T6Write(msg, _P.binaryWriter()));
+/**
+ * Deserializes T6 from protobuf.
+ */
+export const T6Decode = (bytes) => T6Read(T6New(), _P.binaryReader(bytes));
+const T6New = () => [0, 0, 0, 0, "", "", 0, ""];
+const T6Write = _P.encoder(
+  _P.writeSint32,
+  _P.writeUint32,
+  _P.writeUint32,
+  _P.writeUint32,
+  _P.writeString,
+  _P.writeString,
+  _P.writeUint32,
+  _P.writeString,
+);
+const T6Read = (msg, reader) => {
+  while (_P.nextField(reader)) {
+    switch (_P.getFieldNumber(reader)) {
+      case 1: {
+        msg[0] = _P.readSint32(reader);
+        break;
+      }
+      case 2: {
+        msg[1] = _P.readUint32(reader);
+        break;
+      }
+      case 3: {
+        msg[2] = _P.readUint32(reader);
+        break;
+      }
+      case 4: {
+        msg[3] = _P.readUint32(reader);
+        break;
+      }
+      case 5: {
+        msg[4] = _P.readString(reader);
+        break;
+      }
+      case 6: {
+        msg[5] = _P.readString(reader);
+        break;
+      }
+      case 7: {
+        msg[6] = _P.readUint32(reader);
+        break;
+      }
+      case 8: {
+        msg[7] = _P.readString(reader);
+        break;
+      }
+      default: {
+        _P.skipField(reader);
+        break;
+      }
+    }
+  }
+  return msg;
+};

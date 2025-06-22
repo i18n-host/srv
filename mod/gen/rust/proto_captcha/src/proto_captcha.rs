@@ -40,16 +40,13 @@ impl ::pb_jelly::Message for VerifyArgs {
           oneof_index: None,
         },
       ],
-      oneofs: &[],
+      oneofs: &[
+      ],
     })
   }
   fn compute_size(&self) -> usize {
     let mut size = 0usize;
-    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(
-      &self.id,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    );
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(&self.id, 1, ::pb_jelly::wire_format::Type::LengthDelimited);
     if !self.click_pos_li.is_empty() {
       let mut click_pos_li_size = 0usize;
       for val in &self.click_pos_li {
@@ -62,12 +59,7 @@ impl ::pb_jelly::Message for VerifyArgs {
     size
   }
   fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
-    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(
-      w,
-      &self.id,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    )?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(w, &self.id, 1, ::pb_jelly::wire_format::Type::LengthDelimited)?;
     if !self.click_pos_li.is_empty() {
       let mut size = 0usize;
       for val in &self.click_pos_li {
@@ -81,30 +73,15 @@ impl ::pb_jelly::Message for VerifyArgs {
     }
     Ok(())
   }
-  fn deserialize<B: ::pb_jelly::PbBufferReader>(
-    &mut self,
-    mut buf: &mut B,
-  ) -> ::std::io::Result<()> {
+  fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
     while let Some((field_number, typ)) = ::pb_jelly::wire_format::read(&mut buf)? {
       match field_number {
         1 => {
-          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(
-            buf,
-            typ,
-            "VerifyArgs",
-            1,
-          )?;
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(buf, typ, "VerifyArgs", 1)?;
           self.id = val;
         }
         2 => {
-          ::pb_jelly::helpers::deserialize_packed::<B, u32>(
-            buf,
-            typ,
-            ::pb_jelly::wire_format::Type::Varint,
-            "VerifyArgs",
-            2,
-            &mut self.click_pos_li,
-          )?;
+          ::pb_jelly::helpers::deserialize_packed::<B, u32>(buf, typ, ::pb_jelly::wire_format::Type::Varint, "VerifyArgs", 2, &mut self.click_pos_li)?;
         }
         _ => {
           ::pb_jelly::skip(typ, &mut buf)?;
@@ -124,7 +101,9 @@ impl ::pb_jelly::Reflection for VerifyArgs {
   }
   fn get_field_mut(&mut self, field_name: &str) -> ::pb_jelly::reflection::FieldMut<'_> {
     match field_name {
-      "id" => ::pb_jelly::reflection::FieldMut::Value(&mut self.id),
+      "id" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.id)
+      }
       "click_pos_li" => {
         unimplemented!("Repeated fields are not currently supported.")
       }
@@ -154,46 +133,35 @@ impl ::pb_jelly::Message for String {
     Some(::pb_jelly::MessageDescriptor {
       name: "String",
       full_name: "captcha.String",
-      fields: &[::pb_jelly::FieldDescriptor {
-        name: "v",
-        full_name: "captcha.String.v",
-        index: 0,
-        number: 1,
-        typ: ::pb_jelly::wire_format::Type::LengthDelimited,
-        label: ::pb_jelly::Label::Optional,
-        oneof_index: None,
-      }],
-      oneofs: &[],
+      fields: &[
+        ::pb_jelly::FieldDescriptor {
+          name: "v",
+          full_name: "captcha.String.v",
+          index: 0,
+          number: 1,
+          typ: ::pb_jelly::wire_format::Type::LengthDelimited,
+          label: ::pb_jelly::Label::Optional,
+          oneof_index: None,
+        },
+      ],
+      oneofs: &[
+      ],
     })
   }
   fn compute_size(&self) -> usize {
     let mut size = 0usize;
-    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(
-      &self.v,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    );
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::string::String>(&self.v, 1, ::pb_jelly::wire_format::Type::LengthDelimited);
     size
   }
   fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
-    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(
-      w,
-      &self.v,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    )?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::string::String>(w, &self.v, 1, ::pb_jelly::wire_format::Type::LengthDelimited)?;
     Ok(())
   }
-  fn deserialize<B: ::pb_jelly::PbBufferReader>(
-    &mut self,
-    mut buf: &mut B,
-  ) -> ::std::io::Result<()> {
+  fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
     while let Some((field_number, typ)) = ::pb_jelly::wire_format::read(&mut buf)? {
       match field_number {
         1 => {
-          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(
-            buf, typ, "String", 1,
-          )?;
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::string::String>(buf, typ, "String", 1)?;
           self.v = val;
         }
         _ => {
@@ -214,7 +182,9 @@ impl ::pb_jelly::Reflection for String {
   }
   fn get_field_mut(&mut self, field_name: &str) -> ::pb_jelly::reflection::FieldMut<'_> {
     match field_name {
-      "v" => ::pb_jelly::reflection::FieldMut::Value(&mut self.v),
+      "v" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.v)
+      }
       _ => {
         panic!("unknown field name given")
       }
@@ -274,71 +244,36 @@ impl ::pb_jelly::Message for Captcha {
           oneof_index: None,
         },
       ],
-      oneofs: &[],
+      oneofs: &[
+      ],
     })
   }
   fn compute_size(&self) -> usize {
     let mut size = 0usize;
-    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(
-      &self.id,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    );
-    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(
-      &self.img,
-      2,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    );
-    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(
-      &self.tip,
-      3,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    );
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(&self.id, 1, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(&self.img, 2, ::pb_jelly::wire_format::Type::LengthDelimited);
+    size += ::pb_jelly::helpers::compute_size_scalar::<::std::vec::Vec<u8>>(&self.tip, 3, ::pb_jelly::wire_format::Type::LengthDelimited);
     size
   }
   fn serialize<W: ::pb_jelly::PbBufferWriter>(&self, w: &mut W) -> ::std::io::Result<()> {
-    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(
-      w,
-      &self.id,
-      1,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    )?;
-    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(
-      w,
-      &self.img,
-      2,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    )?;
-    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(
-      w,
-      &self.tip,
-      3,
-      ::pb_jelly::wire_format::Type::LengthDelimited,
-    )?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(w, &self.id, 1, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(w, &self.img, 2, ::pb_jelly::wire_format::Type::LengthDelimited)?;
+    ::pb_jelly::helpers::serialize_scalar::<W, ::std::vec::Vec<u8>>(w, &self.tip, 3, ::pb_jelly::wire_format::Type::LengthDelimited)?;
     Ok(())
   }
-  fn deserialize<B: ::pb_jelly::PbBufferReader>(
-    &mut self,
-    mut buf: &mut B,
-  ) -> ::std::io::Result<()> {
+  fn deserialize<B: ::pb_jelly::PbBufferReader>(&mut self, mut buf: &mut B) -> ::std::io::Result<()> {
     while let Some((field_number, typ)) = ::pb_jelly::wire_format::read(&mut buf)? {
       match field_number {
         1 => {
-          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(
-            buf, typ, "Captcha", 1,
-          )?;
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(buf, typ, "Captcha", 1)?;
           self.id = val;
         }
         2 => {
-          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(
-            buf, typ, "Captcha", 2,
-          )?;
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(buf, typ, "Captcha", 2)?;
           self.img = val;
         }
         3 => {
-          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(
-            buf, typ, "Captcha", 3,
-          )?;
+          let val = ::pb_jelly::helpers::deserialize_length_delimited::<B, ::std::vec::Vec<u8>>(buf, typ, "Captcha", 3)?;
           self.tip = val;
         }
         _ => {
@@ -359,12 +294,19 @@ impl ::pb_jelly::Reflection for Captcha {
   }
   fn get_field_mut(&mut self, field_name: &str) -> ::pb_jelly::reflection::FieldMut<'_> {
     match field_name {
-      "id" => ::pb_jelly::reflection::FieldMut::Value(&mut self.id),
-      "img" => ::pb_jelly::reflection::FieldMut::Value(&mut self.img),
-      "tip" => ::pb_jelly::reflection::FieldMut::Value(&mut self.tip),
+      "id" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.id)
+      }
+      "img" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.img)
+      }
+      "tip" => {
+        ::pb_jelly::reflection::FieldMut::Value(&mut self.tip)
+      }
       _ => {
         panic!("unknown field name given")
       }
     }
   }
 }
+

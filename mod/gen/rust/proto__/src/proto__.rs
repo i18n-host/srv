@@ -8,20 +8,12 @@ pub enum Func {
   UserName = 3,
   AuthSigninMail = 4,
   AuthSignupMail = 5,
-  DemoCaptcha = 6,
-  DemoManualCaptcha = 7,
+  AuthTest = 6,
+  DemoCaptcha = 7,
+  DemoManualCaptcha = 8,
 }
 impl Func {
-  pub const KNOWN_VARIANTS: [Func; 8] = [
-    Func::None,
-    Func::CaptchaVerify,
-    Func::Captcha,
-    Func::UserName,
-    Func::AuthSigninMail,
-    Func::AuthSignupMail,
-    Func::DemoCaptcha,
-    Func::DemoManualCaptcha,
-  ];
+  pub const KNOWN_VARIANTS: [Func; 9] = [Func::None, Func::CaptchaVerify, Func::Captcha, Func::UserName, Func::AuthSigninMail, Func::AuthSignupMail, Func::AuthTest, Func::DemoCaptcha, Func::DemoManualCaptcha];
 }
 impl ::std::default::Default for Func {
   fn default() -> Self {
@@ -37,8 +29,9 @@ impl From<Func> for u32 {
       Func::UserName => 3,
       Func::AuthSigninMail => 4,
       Func::AuthSignupMail => 5,
-      Func::DemoCaptcha => 6,
-      Func::DemoManualCaptcha => 7,
+      Func::AuthTest => 6,
+      Func::DemoCaptcha => 7,
+      Func::DemoManualCaptcha => 8,
     }
   }
 }
@@ -52,13 +45,15 @@ impl ::std::convert::TryFrom<u32> for Func {
       3 => Ok(Func::UserName),
       4 => Ok(Func::AuthSigninMail),
       5 => Ok(Func::AuthSignupMail),
-      6 => Ok(Func::DemoCaptcha),
-      7 => Ok(Func::DemoManualCaptcha),
+      6 => Ok(Func::AuthTest),
+      7 => Ok(Func::DemoCaptcha),
+      8 => Ok(Func::DemoManualCaptcha),
       _ => Err(v),
     }
   }
 }
-impl ::pb_jelly::ProtoEnum for Func {}
+impl ::pb_jelly::ProtoEnum for Func {
+}
 impl ::pb_jelly::ClosedProtoEnum for Func {
   fn name(self) -> &'static str {
     match self {
@@ -68,8 +63,10 @@ impl ::pb_jelly::ClosedProtoEnum for Func {
       Func::UserName => "UserName",
       Func::AuthSigninMail => "AuthSigninMail",
       Func::AuthSignupMail => "AuthSignupMail",
+      Func::AuthTest => "AuthTest",
       Func::DemoCaptcha => "DemoCaptcha",
       Func::DemoManualCaptcha => "DemoManualCaptcha",
     }
   }
 }
+

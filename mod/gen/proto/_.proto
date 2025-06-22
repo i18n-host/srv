@@ -12,6 +12,7 @@ enum Func {
   UserName = 3;
   AuthSigninMail = 4;
   AuthSignupMail = 5;
-  DemoCaptcha = 6;
-  DemoManualCaptcha = 7;
+  AuthTest = 6;
+  DemoCaptcha = 7;
+  DemoManualCaptcha = 8;
 }

@@ -2,6 +2,7 @@
  * ## auth_
  * - @captcha signin::mail(SigninMailArgs)
  * - @captcha signup::mail(SignupMailArgs)
+ * - test(TestArgs)
  */
 
 syntax = "proto3";
@@ -15,4 +16,15 @@ message SigninMailArgs {
 message SignupMailArgs {
   string address = 1;
   string password = 2;
+}
+
+message TestArgs {
+  sint32 timezone = 1;
+  uint32 dpi = 2;
+  uint32 w = 3;
+  uint32 h = 4;
+  string os_ver = 5;
+  string arch = 6;
+  uint32 cpu_num = 7;
+  string gpu = 8;
 }

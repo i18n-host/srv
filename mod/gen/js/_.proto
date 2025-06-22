@@ -22,3 +22,13 @@ message T5 {
   string t0=1;
   string t1=2;
 }
+message T6 {
+  sint32 t0=1;
+  uint32 t1=2;
+  uint32 t2=3;
+  uint32 t3=4;
+  string t4=5;
+  string t5=6;
+  uint32 t6=7;
+  string t7=8;
+}
