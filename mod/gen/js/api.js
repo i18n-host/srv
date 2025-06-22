@@ -20,6 +20,6 @@ export const captcha = _noArgs(2,T1Decode) /* id:Vec<u8>,img:Vec<u8>,tip:Vec<u8>
 export const userName = _noArgs(3,T4Decode) /* :string */
 export const authSigninMail = (address /* str */,password /* str */)=>_req(4,NULL,T5Encode([address,password]))
 export const authSignupMail = (address /* str */,password /* str */)=>_req(5,NULL,T5Encode([address,password]))
-export const authTest = (timezone /* i8 */,dpi /* u8 */,w /* u16 */,h /* u16 */,os_ver /* str */,arch /* str */,model /* str */,cpu_num /* u32 */,gpu /* str */)=>_req(6,NULL,T6Encode([timezone,dpi,w,h,os_ver,arch,model,cpu_num,gpu]))
+export const authTest = (timezone /* i8 */,dpi /* u8 */,w /* u16 */,h /* u16 */,arch /* str */,model /* str */,cpu_num /* u32 */,gpu /* str */,os_v1 /* u32 */,os_v2 /* u32 */)=>_req(6,NULL,T6Encode([timezone,dpi,w,h,arch,model,cpu_num,gpu,os_v1,os_v2]))
 export const demoCaptcha = _noArgs(7,NULL)
 export const demoManualCaptcha = _noArgs(8,NULL)

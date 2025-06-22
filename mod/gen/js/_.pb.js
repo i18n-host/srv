@@ -207,7 +207,7 @@ export const T6Encode = (msg) =>
  * Deserializes T6 from protobuf.
  */
 export const T6Decode = (bytes) => T6Read(T6New(), _P.binaryReader(bytes));
-const T6New = () => [0, 0, 0, 0, "", "", "", 0, ""];
+const T6New = () => [0, 0, 0, 0, "", "", 0, "", 0, 0];
 const T6Write = _P.encoder(
   _P.writeSint32,
   _P.writeUint32,
@@ -215,9 +215,10 @@ const T6Write = _P.encoder(
   _P.writeUint32,
   _P.writeString,
   _P.writeString,
-  _P.writeString,
   _P.writeUint32,
   _P.writeString,
+  _P.writeUint32,
+  _P.writeUint32,
 );
 const T6Read = (msg, reader) => {
   while (_P.nextField(reader)) {
@@ -247,15 +248,19 @@ const T6Read = (msg, reader) => {
         break;
       }
       case 7: {
-        msg[6] = _P.readString(reader);
+        msg[6] = _P.readUint32(reader);
         break;
       }
       case 8: {
-        msg[7] = _P.readUint32(reader);
+        msg[7] = _P.readString(reader);
         break;
       }
       case 9: {
-        msg[8] = _P.readString(reader);
+        msg[8] = _P.readUint32(reader);
+        break;
+      }
+      case 10: {
+        msg[9] = _P.readUint32(reader);
         break;
       }
       default: {
