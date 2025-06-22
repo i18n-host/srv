@@ -26,5 +26,5 @@ env_sh() {
   unset -f env_sh
 }
 
-env_sh r
+env_sh r mariadb
 #env_sh host kv gt redis mq pg mail clip nchan api qdrant

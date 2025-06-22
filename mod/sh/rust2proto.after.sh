@@ -7,3 +7,6 @@ if ! command -v pbc &>/dev/null; then
 fi
 
 pbc || (rm -rf pb && exit 1)
+
+cd ..
+cargo fmt
