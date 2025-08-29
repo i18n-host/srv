@@ -15,7 +15,7 @@ hpc = { version = "0.1.50" }
 ih = { version = "0.1.15" }
 
 aok = "0.1.17"
-axum = { version = "0.8.4", features = ["log", "macros"] }
+axum = { version = "0.8.4", features = ["tracing", "macros"] }
 axum_layer = "0.1.11"
 genv = "0.1.16"
 log_init = "0.1.18"
