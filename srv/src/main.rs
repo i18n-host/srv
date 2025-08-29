@@ -6,7 +6,7 @@ use hpc_srv::srv;
 
 #[static_init::constructor(0)]
 extern "C" fn init() {
-  loginit::init()
+  log_init::init()
 }
 
 #[tokio::main]

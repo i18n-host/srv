@@ -15,10 +15,10 @@ hpc = { version = "0.1.50" }
 ih = { version = "0.1.15" }
 
 aok = "0.1.17"
-axum = { version = "0.8.4", features = ["tracing", "macros"] }
+axum = { version = "0.8.4", features = ["log", "macros"] }
 axum_layer = "0.1.11"
 genv = "0.1.16"
-loginit = "0.1.18"
+log_init = "0.1.18"
 pb-jelly = "0.0.17"
 static_ = "0.1.14"
 static_init = "1.0.4"
